@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for @post, :html => { :multipart => true } do |f| %>
+
+      <%= f.label :image %>
+      <%= f.file_field :image %>
+
+      <%= f.label :caption %>
+      <p><%= f.text_field :caption, class: 'form-control' %></p>
+
+      <p><%= f.submit "Submit picture", class: "btn btn-success center-block"  %></p>
+    <% end %>
+  </div>
+</div>

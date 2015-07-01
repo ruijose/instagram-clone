@@ -1,0 +1,6 @@
+<% @posts.each do |post| %>
+  <div class="thumbnail">
+    <%= image_tag post.image.url(:medium) %>
+    <%= post.caption %>
+  </div>
+<% end %>
