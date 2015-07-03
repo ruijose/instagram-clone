@@ -25,7 +25,17 @@ body {
   margin-right: auto;
 }
 
-.navbar {
-  color: blue;
+.navbar-default {
+  .navbar-nav li a {
+    color: #125688;
+  }
+}
+
+.navbar-default {
+  .navbar-header {
+    .navbar-brand  {
+      color: #125688;
+    }
+  }
 }
 
