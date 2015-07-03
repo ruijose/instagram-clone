@@ -23,6 +23,11 @@
         <p><%= f.password_field :password_confirmation, autocomplete: "off" , class: 'form-control'%></p>
       </div>
 
+      <div>
+        <%= f.label :avatar %></br />
+        <p><%= f.file_field :avatar %></p>
+      </div>
+
       <div class="actions">
         <%= f.submit "Sign up", class: "btn btn-primary center-block"  %>
       </div>

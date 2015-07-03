@@ -17,7 +17,7 @@
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <% if user_signed_in? %>
-        <li><a href=""><%= current_user.email %></a></li>
+        <li><a <%= link_to current_user.email.split("@")[0], current_user %></a></li>
         <li><a <%= link_to "logout", destroy_user_session_path, :method => :delete %></a></li>
       <% else %>
         <li><a <%= link_to "Login", new_user_session_path %></li>
