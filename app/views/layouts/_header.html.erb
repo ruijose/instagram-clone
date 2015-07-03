@@ -16,7 +16,13 @@
       <li><a <%= link_to "New post", new_post_path %></a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="#">Register</a></li>
+      <% if user_signed_in? %>
+        <li><a href=""><%= current_user.email %></a></li>
+        <li><a <%= link_to "logout", destroy_user_session_path, :method => :delete %></a></li>
+      <% else %>
+        <li><a <%= link_to "Login", new_user_session_path %></li>
+        <li><a <%= link_to "Register", new_user_registration_path %></a></li>
+      <% end %>
     </ul>
   </div>
 </div>
