@@ -1,8 +1,13 @@
 <% @posts.each do |post| %>
   <div class="thumbnail">
-    <div class="thum-name">
-      <div class="image-circle2">
-        <%= image_tag User.find(post.user_id).avatar.url(:medium) %>
+    <div class="row">
+      <div class="col-md-1">
+        <div class="image-circle2">
+          <%= image_tag User.find(post.user_id).avatar.url(:medium) %> 
+        </div>
+      </div>
+      <div class="col-sm-6" id="name-on-post">
+        <%= link_to User.find(post.user_id).email.split("@")[0], User.find(post.user_id) %>
       </div>
     </div>
     <%= image_tag post.image.url(:medium) %>
