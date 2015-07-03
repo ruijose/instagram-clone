@@ -1,5 +1,10 @@
 <% @posts.each do |post| %>
   <div class="thumbnail">
+    <div class="thum-name">
+      <div class="image-circle2">
+        <%= image_tag User.find(post.user_id).avatar.url(:medium) %>
+      </div>
+    </div>
     <%= image_tag post.image.url(:medium) %>
     <%= post.caption %>
   </div>

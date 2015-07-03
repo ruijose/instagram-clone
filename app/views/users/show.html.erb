@@ -1,13 +1,13 @@
 <div class="row">
   <div class="col-md-4">
     <div class="image-circle">
-      <%= image_tag current_user.avatar.url(:medium) %>
+      <%= image_tag @user.avatar.url(:medium) %>
     </div>
   </div>
   <div class="col-md-4">
     <div class="text-user">
-      <p><%= current_user.email %></p>
-      <p><%= current_user.email.split("@")[0] %></p>
+      <p><%= @user.email %></p>
+      <p><%= @user.email.split("@")[0] %></p>
       <%= pluralize current_user.posts.count, "Publication" %>
     </div>
   </div>
@@ -15,7 +15,7 @@
 <br />
 <br />
 <div class="row">
-  <% current_user.posts.each do |post| %>
+  <% @user.posts.each do |post| %>
     <div class="col-md-4">
       <div class="thumbnail">
         <%= image_tag post.image.url(:medium) %>

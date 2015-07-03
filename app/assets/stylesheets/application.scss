@@ -52,8 +52,26 @@ body {
   img { width: 100% }
 }
 
+.image-circle2 {
+  background-color: white;
+  border: 1px solid #d9d9d9;
+  border-radius: 20px;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  height: 40px;
+  width: 40px;
+  overflow: hidden;
+  text-align: center;
+  img { width: 100% }
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
 .text-user {
   font-family: proxima-nova, 'S Light', sans-serif;
   color: #505050;
   font-size: 25px;
+}
+
+.thum-name {
+  font-size: 20px;
 }
