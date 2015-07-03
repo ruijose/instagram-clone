@@ -8,7 +8,18 @@
     <div class="text-user">
       <p><%= current_user.email %></p>
       <p><%= current_user.email.split("@")[0] %></p>
-      <p>3 publications</p>
+      <%= pluralize current_user.posts.count, "Publication" %>
     </div>
   </div>
+</div>
+<br />
+<br />
+<div class="row">
+  <% current_user.posts.each do |post| %>
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <%= image_tag post.image.url(:medium) %>
+      </div>
+    </div>
+  <% end %>
 </div>
