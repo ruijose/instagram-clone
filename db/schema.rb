@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150703143326) do
+ActiveRecord::Schema.define(version: 20150707222941) do
+
+  create_table "likes", force: :cascade do |t|
+    t.integer  "who_liked_id"
+    t.integer  "liked_pics_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
 
   create_table "posts", force: :cascade do |t|
     t.string   "caption"
