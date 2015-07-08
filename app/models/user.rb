@@ -1,6 +1,4 @@
 class User < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
@@ -9,4 +7,8 @@ class User < ActiveRecord::Base
   has_many :posts
   has_many :likes,      :foreign_key => "who_liked_id"
   has_many :liked_pics, through: :likes
+
+  def like(post)
+    self.likes.create(:liked_pics_id => post.id)
+  end
 end
