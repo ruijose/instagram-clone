@@ -11,7 +11,9 @@
       </div>
     </div>
     <%= image_tag post.image.url(:medium) %>
-    <%= render 'like_buttom', object: post %>
+    <div id="like">
+      <%= render 'like_buttom', object: post %></li>
+    </div>
   </div>
 <% end %>
 
