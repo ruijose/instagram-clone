@@ -4,15 +4,17 @@ class LikesController < ApplicationController
     current_user.like(@post)
     respond_to do |format|
       format.html { redirect_to root_path }
-      format.js
+      format.js { render :file => "likes/toggle.js.erb" }
     end
   end
 
   def destroy
-    like = Like.find(params[:id]).destroy
+    like = Like.find(params[:id])
+    @post = Post.find(like.liked_pics_id) 
+    like.destroy
     respond_to do |format|
       format.html { redirect_to root_path }
-      format.js
+      format.js { render :file => "likes/toggle.js.erb" }
     end
   end
 end
