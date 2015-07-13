@@ -6,4 +6,5 @@ class Post < ActiveRecord::Base
   belongs_to :user
   has_many :likes, :foreign_key => "liked_pics_id"
   has_many :who_liked, :through => :likes
+  has_many :comments
 end
