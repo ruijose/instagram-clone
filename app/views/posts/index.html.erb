@@ -11,6 +11,7 @@
       </div>
     </div>
     <%= image_tag post.image.url(:medium) %>
+    <div class="likes_count"><%= pluralize(post.who_liked.count, 'like') %></div>
     <div id="like">
       <%= render 'likes/like_buttom', object: post %></li>
     </div>
