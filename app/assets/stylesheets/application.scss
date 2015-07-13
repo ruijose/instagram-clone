@@ -97,6 +97,7 @@ ul {
   width: 574px;
 }
 .actionBox {
+  margin-top: 10px;
   border-top: 1px dotted #bbb;
   padding: 5px;
 }
@@ -106,4 +107,45 @@ ul {
   font-size: 15px;
   margin-left: 13px;
   margin-top: 6px;
+}
+
+#n-comment{
+  font-size: 15px;
+  color: #125688;
+  font-weight: bold;
+  margin-left: 13px;
+}
+
+.commentList {
+  padding:0;
+  list-style:none;
+  max-height:200px;
+  overflow:auto;
+  margin-left: 13px;
+}
+
+.commentList li {
+  margin:0;
+  margin-top:10px;
+}
+
+.commentList li > div {
+  display:table-cell;
+}
+
+.commenterImage {
+  font-weight: bold;
+  color: #125688;
+  font-size: 16px;
+}
+
+.commentText{
+  font-size: 16px;
+  padding-left: 3px;
+}
+
+.heart{
+  width: 3%;
+  margin-top: 5px;
+  margin-left: 13px;
 }

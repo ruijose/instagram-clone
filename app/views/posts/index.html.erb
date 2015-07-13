@@ -15,6 +15,14 @@
     <div id="like">
       <%= render 'likes/like_buttom', object: post %></li>
     </div>
+    <% post.comments.each do |comment| %>
+      <ul class="commentList">
+        <li>
+          <div class="commenterImage"><%= User.find(comment.author.to_i).email.split("@")[0] %></div>
+          <div class="commentText"><%= comment.body %></div>
+        </li>
+      </ul>
+    <% end %>
     <div class="actionBox">
       <%= form_for [post, Comment.new], :html => { :class => 'form-inline' } do |f| %>
         <div class="form-group">
