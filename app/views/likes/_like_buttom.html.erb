@@ -1,10 +1,12 @@
-<% if like = current_user.likes.find_by_liked_pics_id(object.id) %>
-  <%= form_for like, :html => { :method => :delete } do |f| %>
-    <%= f.submit "unlike", :type => :image, :src => "/assets/heart.png", class: "heart" %>
-  <% end %>
-<% else %>
-  <%= form_for (current_user.likes.build(liked_pics_id: object.id)) do |f| %>
-    <div><%= f.hidden_field :liked_pics_id %></div>
-    <%= f.submit "like", :type => :image, :src => "/assets/white.png", class: "heart" %>
+<% if user_signed_in? %>
+  <% if like = current_user.likes.find_by_liked_pics_id(object.id) %>
+    <%= form_for like, :html => { :method => :delete } do |f| %>
+      <%= f.submit "unlike", :type => :image, :src => "/assets/heart.png", class: "heart" %>
+    <% end %>
+  <% else %>
+    <%= form_for (current_user.likes.build(liked_pics_id: object.id)) do |f| %>
+      <div><%= f.hidden_field :liked_pics_id %></div>
+      <%= f.submit "like", :type => :image, :src => "/assets/white.png", class: "heart" %>
+    <% end %>
   <% end %>
 <% end %>
