@@ -6,7 +6,7 @@
 <% object.comments.each do |comment| %>
   <ul class="commentList">
     <li>
-    <div class="commenterImage"><%= User.find(comment.author.to_i).email.split("@")[0] %></div>
+    <div class="commenterImage"><%= User.find(comment.user_id).email.split("@")[0] %></div>
     <div class="commentText"><%= comment.body %></div>
     </li>
   </ul>

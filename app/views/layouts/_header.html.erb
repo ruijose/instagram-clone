@@ -13,11 +13,12 @@
 
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav">
-      <li><a <%= link_to "New post", new_post_path %></a></li>
+      <li><a <%= link_to "new post", new_post_path %></a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <% if user_signed_in? %>
         <li><a <%= link_to current_user.email.split("@")[0], current_user %></a></li>
+        <li><a <%= link_to "edit", edit_user_registration_path %>
         <li><a <%= link_to "logout", destroy_user_session_path, :method => :delete %></a></li>
       <% else %>
         <li><a <%= link_to "Login", new_user_session_path %></li>
