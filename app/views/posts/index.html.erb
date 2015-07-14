@@ -6,7 +6,7 @@
           <%= image_tag User.find(post.user_id).avatar.url(:medium) %> 
         </div>
       </div>
-      <div class="col-sm-6" id="name-on-post">
+      <div class="col-md-1" id="name-on-post">
         <%= link_to User.find(post.user_id).email.split("@")[0], User.find(post.user_id) %>
       </div>
     </div>
