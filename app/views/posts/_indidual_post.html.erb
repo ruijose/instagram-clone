@@ -1,0 +1,21 @@
+<%= image_tag object.image.url(:medium) %>
+<div class="likes_count"><%= pluralize(object.who_liked.count, 'like') %></div>
+<div id="like">
+  <%= render 'likes/like_buttom', object: object %></li>
+</div>
+<% object.comments.each do |comment| %>
+  <ul class="commentList">
+    <li>
+    <div class="commenterImage"><%= User.find(comment.author.to_i).email.split("@")[0] %></div>
+    <div class="commentText"><%= comment.body %></div>
+    </li>
+  </ul>
+<% end %>
+<div class="actionBox">
+  <%= form_for [object, Comment.new], :html => { :class => 'form-inline' } do |f| %>
+    <div class="form-group">
+      <%= f.text_field :body, placeholder: 'your comment...', class: "form-control", id: "test" %>
+    </div>
+    <%= f.submit "Add", class: "btn btn-default" %>
+  <% end %>
+</div>

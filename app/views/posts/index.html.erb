@@ -10,27 +10,7 @@
         <%= link_to User.find(post.user_id).email.split("@")[0], User.find(post.user_id) %>
       </div>
     </div>
-    <%= image_tag post.image.url(:medium) %>
-    <div class="likes_count"><%= pluralize(post.who_liked.count, 'like') %></div>
-    <div id="like">
-      <%= render 'likes/like_buttom', object: post %></li>
-    </div>
-    <% post.comments.each do |comment| %>
-      <ul class="commentList">
-        <li>
-          <div class="commenterImage"><%= User.find(comment.author.to_i).email.split("@")[0] %></div>
-          <div class="commentText"><%= comment.body %></div>
-        </li>
-      </ul>
-    <% end %>
-    <div class="actionBox">
-      <%= form_for [post, Comment.new], :html => { :class => 'form-inline' } do |f| %>
-        <div class="form-group">
-          <%= f.text_field :body, placeholder: 'your comment...', class: "form-control", id: "test" %>
-        </div>
-        <%= f.submit "Add", class: "btn btn-default" %>
-      <% end %>
-    </div>
+    <%= render 'indidual_post', :object => post %>
   </div>
 <% end %>
 
