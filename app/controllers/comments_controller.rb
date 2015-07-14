@@ -18,6 +18,12 @@ class CommentsController < ApplicationController
     redirect_to root_path if @post.save
   end
 
+  def destroy
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+    redirect_to root_path
+  end
+
 
   private
     def set_comment
