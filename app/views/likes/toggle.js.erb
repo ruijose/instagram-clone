@@ -1,1 +1,1 @@
-$("#like").html("<%= escape_javascript render(:partial => 'like_buttom', :locals => { object: @post }) %>");
+$("#<%= @post.id %>").html("<%= escape_javascript render(:partial => 'like_buttom', :locals => { object: @post }) %>");
