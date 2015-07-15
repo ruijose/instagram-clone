@@ -1,1 +1,2 @@
 $("#<%= @post.id %>").html("<%= escape_javascript render(:partial => 'like_buttom', :locals => { object: @post }) %>");
+$("#<%= "likes" << @post.id.to_s %>").html("<%= escape_javascript pluralize(@post.who_liked.count, "like") %>")
