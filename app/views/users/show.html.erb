@@ -1,14 +1,22 @@
 <div class="row">
-  <div class="col-md-4">
+  <div class="col-xs-6 col-md-4">
     <div class="image-circle">
       <%= image_tag @user.avatar.url(:medium) %>
     </div>
   </div>
-  <div class="col-md-4">
+  <div class="col-xs-12 col-md-8">
     <div class="text-user">
+      <ul>
+        <li><%= @user.email.split("@")[0] %></li>
+      </ul>
       <p><%= @user.email %></p>
-      <p><%= @user.email.split("@")[0] %></p>
-      <%= pluralize @user.posts.count, "Publication" %>
+    </div>
+    <div class="user-stats">
+      <ul>
+        <li><strong><%= @user.posts.count.to_s %></strong> Publications</li>
+        <li><strong><%= @user.followers.count.to_s %></strong> Followers</li>
+        <li><strong><%= @user.followed_users.count.to_s %></strong> Following</li>
+      </ul>
     </div>
   </div>
 </div>
