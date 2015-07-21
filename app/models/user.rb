@@ -30,4 +30,8 @@ class User < ActiveRecord::Base
   def unfollow!(other_user)
     self.relationships.find_by_followed_id(other_user.id).destroy
   end
+
+  def self.search(query)
+    where("email like ?", "%#{query}%") 
+  end
 end
