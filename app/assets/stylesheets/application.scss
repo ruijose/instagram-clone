@@ -76,8 +76,9 @@ body {
 
 #date-on-post {
   margin-top: 19px;
-  font-size: 13px;
-  color: #4b4f54;
+  font-size: 14px;
+  color: #a5a7aa;
+  padding-left: 30px;
 }
 .text-user {
   font-family: proxima-nova, 'S Light', sans-serif;
@@ -166,3 +167,16 @@ ul {
   font-size: 18px;
 }
 
+#follow-unfollow{
+  margin-left: 10px;
+}
+
+#follow-button {
+  height: 30px;
+  line-height: 10px;
+}
+
+#unfollow-button {
+  height: 30px;
+  line-height: 10px;
+}
