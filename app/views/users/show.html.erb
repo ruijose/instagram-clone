@@ -11,13 +11,15 @@
           <li><%= @user.email.split("@")[0] %></li>
         </div>
         <div class="col-md-1" id="follow-unfollow">
-          <% unless current_user.id == @user.id %>
-            <% if current_user.following?(@user) %>
-              <%= render 'unfollow' %>
-            <% else %>
-              <%= render 'follow' %>              
+          <div id="follow-form-users">
+            <% unless current_user.id == @user.id %>
+              <% if current_user.following?(@user) %>
+                <%= render 'unfollow' %>
+              <% else %>
+                <%= render 'follow' %>              
+              <% end %>
             <% end %>
-          <% end %>
+          </div>
         </div>
       </div>
       <p><%= @user.email %></p>
@@ -25,7 +27,7 @@
     <div class="user-stats">
       <ul>
         <li><strong><%= @user.posts.count.to_s %></strong> Publications</li>
-        <li><strong><%= @user.followers.count.to_s %></strong> Followers</li>
+        <li><strong id="followers"><%= @user.followers.count.to_s %></strong> Followers</li>
         <li><strong><%= @user.followed_users.count.to_s %></strong> Following</li>
       </ul>
     </div>
