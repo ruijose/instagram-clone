@@ -10,7 +10,8 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = @post.comments.new(comment_params)
     @comment.user_id = current_user.id
-    redirect_to root_path if @post.save
+    @comment.save!
+    redirect_to root_path
   end
 
   def destroy
