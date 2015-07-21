@@ -1,3 +1,12 @@
 <% @users.each do |user| %>
-  <h4><%= user.email.split("@")[0] %></h4>
+  <div class="row">
+    <div class="col-md-1">
+      <div class="image-circle2">
+        <%= image_tag user.avatar.url(:medium) %> 
+      </div>
+    </div>
+    <div class="col-md-1" id="name-on-post">
+      <%= link_to user.email.split("@")[0], user%>
+    </div>
+  </div>
 <% end %>

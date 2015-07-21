@@ -10,7 +10,8 @@
         <div class="col-md-1">
           <li><%= @user.email.split("@")[0] %></li>
         </div>
-        <div class="col-md-1" id="follow-unfollow">
+        <div class="col-md-1"></div>
+        <div class="col-md-1">
           <div id="follow-form-users">
             <% unless current_user.id == @user.id %>
               <% if current_user.following?(@user) %>

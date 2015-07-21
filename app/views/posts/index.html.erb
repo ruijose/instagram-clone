@@ -4,11 +4,11 @@
       <div class="row">
         <div class="col-md-1">
           <div class="image-circle2">
-            <%= image_tag User.find(post.user_id).avatar.url(:medium) %> 
+            <%= image_tag post.user.avatar.url(:medium) %> 
           </div>
         </div>
         <div class="col-md-1" id="name-on-post">
-          <%= link_to User.find(post.user_id).email.split("@")[0], User.find(post.user_id) %>
+          <%= link_to post.user.email.split("@")[0], post.user%>
         </div>
         <div class="col-md-8"></div>
         <div class="col-md-2" id="date-on-post"><%= distance_of_time_in_words(post.created_at, 50.minutes.from_now).gsub('about', '')  %></div>
