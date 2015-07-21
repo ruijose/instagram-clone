@@ -12,6 +12,9 @@
 
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav">
+      <li><a <%= link_to "new post", new_post_path %></a></li>
+    </ul>
+    <ul class="nav navbar-nav">
       <%= form_tag(users_path, :method => "get", class: "navbar-form") do %>
         <div class="form-group">
           <%= text_field_tag :search, params[:search], placeholder: "search people...", class: "form-control", id: "search-form" %>
@@ -20,10 +23,14 @@
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <% if user_signed_in? %>
-        <li><a <%= link_to current_user.email.split("@")[0], current_user %></a></li>
+        <% if request.original_url.include?("users/#{current_user.id}") %>
+          <li><a <%= link_to "edit", edit_user_registration_path %></a></li>
+          <li><a <%= link_to "logout", destroy_user_session_path, :method => :delete %></a></li>
+        <% else %>
+          <li><a <%= link_to current_user.email.split("@")[0], current_user %></a></li>
+        <% end %>
       <% else %>
         <li><a <%= link_to "Login", new_user_session_path %></a></li>
-        <li><a <%= link_to "Register", new_user_registration_path %></a></li>
       <% end %>
     </ul>
   </div>
