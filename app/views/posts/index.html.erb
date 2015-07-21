@@ -1,25 +1,26 @@
 <% @posts.each do |post| %>
-  <div class="thumbnail">
-    <div class="row">
-      <div class="col-md-1">
-        <div class="image-circle2">
-          <%= image_tag User.find(post.user_id).avatar.url(:medium) %> 
+  <% if current_user.followed_users.include? post.user  %>
+    <div class="thumbnail">
+      <div class="row">
+        <div class="col-md-1">
+          <div class="image-circle2">
+            <%= image_tag User.find(post.user_id).avatar.url(:medium) %> 
+          </div>
         </div>
+        <div class="col-md-1" id="name-on-post">
+          <%= link_to User.find(post.user_id).email.split("@")[0], User.find(post.user_id) %>
+        </div>
+        <div class="col-md-8"></div>
+        <div class="col-md-2" id="date-on-post"><%= distance_of_time_in_words(post.created_at, 50.minutes.from_now).gsub('about', '')  %></div>
       </div>
-      <div class="col-md-1" id="name-on-post">
-        <%= link_to User.find(post.user_id).email.split("@")[0], User.find(post.user_id) %>
+      <%= image_tag post.image.url(:medium) %>
+      <div class="likes_count" id="<%= "likes" << post.id.to_s %>"><%= pluralize(post.who_liked.count, "like") %></div>
+      <div id="<%= post.id %>">
+        <%= render 'likes/like_buttom', object: post %></li>
       </div>
-      <div class="col-md-8"></div>
-      <div class="col-md-2" id="date-on-post"><%= distance_of_time_in_words(post.created_at, 50.minutes.from_now).gsub('about', '')  %></div>
+      <%= render 'indidual_post', :object => post %>
+      <%= render 'comment_box', :object => post %>
     </div>
-    <%= image_tag post.image.url(:medium) %>
-    <div class="likes_count" id="<%= "likes" << post.id.to_s %>"><%= pluralize(post.who_liked.count, "like") %></div>
-    <div id="<%= post.id %>">
-      <%= render 'likes/like_buttom', object: post %></li>
-    </div>
-    <%= render 'indidual_post', :object => post %>
-    <%= render 'comment_box', :object => post %>
-  </div>
+  <% end %>
 <% end %>
-
 
