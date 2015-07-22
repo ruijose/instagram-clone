@@ -6,21 +6,16 @@
   </div>
   <div class="col-md-8">
     <div class="text-user">
-      <div class="row">
-        <div class="col-md-1">
-          <li><%= @user.email.split("@")[0] %></li>
-        </div>
-        <div class="col-md-1"></div>
-        <div class="col-md-1">
-          <div id="follow-form-users">
-            <% unless current_user.id == @user.id %>
-              <% if current_user.following?(@user) %>
-                <%= render 'unfollow' %>
-              <% else %>
-                <%= render 'follow' %>              
-              <% end %>
+      <div class="username_and_follow">
+        <li><%= @user.email.split("@")[0] %></li>
+        <div id="follow-form-users">
+          <% unless current_user.id == @user.id %>
+            <% if current_user.following?(@user) %>
+              <%= render 'unfollow' %>
+            <% else %>
+              <%= render 'follow' %>              
             <% end %>
-          </div>
+          <% end %>
         </div>
       </div>
       <p><%= @user.email %></p>
