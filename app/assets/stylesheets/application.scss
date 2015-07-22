@@ -20,14 +20,17 @@
 body {  
   background-color: #fafafa;
   font-family: proxima-nova, 'Helvetica Neue', Arial, Helvetica, sans-serif;
-  width: 650px;
+}
+
+#body-container{
+  width: 670px;
   margin-left: auto;
   margin-right: auto;
 }
 
-
 #pnavbar{
   background-color: white;
+  height: 78px;
 }
 
 .navbar-default {
@@ -108,7 +111,7 @@ ul {
 }
 
 #test {
-  width: 574px;
+  width: 564px;
 }
 .actionBox {
   margin-top: 10px;
