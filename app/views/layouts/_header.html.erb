@@ -13,6 +13,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li><a <%= link_to "HyperGram", root_path %></a></li>
+        <li><a <%= link_to "new post", new_post_path %></a></li>
       </ul>
       <ul class="nav navbar-nav">
         <%= form_tag(users_path, :method => "get", class: "navbar-form") do %>
