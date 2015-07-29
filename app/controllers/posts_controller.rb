@@ -16,6 +16,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.create(post_params)
     @post.user_id = current_user.id
+    @post.comments.create(:body => @post.caption, :user_id => @post.user_id)
     if @post.save
       redirect_to root_path
     else
