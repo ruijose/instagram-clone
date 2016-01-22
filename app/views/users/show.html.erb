@@ -1,42 +1,55 @@
-<div class="row">
-  <div class="col-md-4">
-    <div class="image-circle">
-      <%= image_tag @user.avatar.url(:medium) %>
-    </div>
-  </div>
-  <div class="col-md-8">
-    <div class="text-user">
-      <div class="username_and_follow">
-        <li><%= @user.email.split("@")[0] %></li>
-        <div id="follow-form-users">
-          <% unless current_user.id == @user.id %>
-            <% if current_user.following?(@user) %>
-              <%= render 'unfollow' %>
-            <% else %>
-              <%= render 'follow' %>              
-            <% end %>
-          <% end %>
+<div class="container">
+  <div id="user-main-page">
+    <div class="row">
+      <div class="col-md-3">
+        <div id="image-circle">
+          <%= image_tag @user.avatar.url(:medium) %>
         </div>
       </div>
-      <p><%= @user.email %></p>
+      <div class="col-md-9">
+        <div id="all-user-info">
+          <div class="row">
+            <div id="user-name">
+              <%= @user.email.split("@")[0] %>
+            </div>
+            <div id="follow-form-users">
+              <% unless current_user.id == @user.id %>
+                <% if current_user.following?(@user) %>
+                  <%= render 'unfollow' %>
+                <% else %>
+                  <%= render 'follow' %>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+          <div class="row">
+            <div id="user-email">
+              <%= @user.email %>
+            </div>
+          </div>
+          <div class="row">
+            <div id="user-stats">
+              <ul>
+                <li><strong><%= @user.posts.count.to_s %></strong> Publications</li>
+                <li><strong id="followers"><%= @user.followers.count.to_s %></strong> Followers</li>
+                <li><strong><%= @user.followed_users.count.to_s %></strong> Following</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="user-stats">
-      <ul>
-        <li><strong><%= @user.posts.count.to_s %></strong> Publications</li>
-        <li><strong id="followers"><%= @user.followers.count.to_s %></strong> Followers</li>
-        <li><strong><%= @user.followed_users.count.to_s %></strong> Following</li>
-      </ul>
+    <div class="row">
+      <% @user.posts.each do |post| %>
+        <div class="col-md-4">
+          <div id="indi-pic">
+            <div class="thumbnail">
+              <%= image_tag post.image.url(:medium) %>
+            </div>
+          </div>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
-<br />
-<br />
-<div class="row">
-  <% @user.posts.each do |post| %>
-    <div class="col-md-4">
-      <div class="thumbnail">
-        <%= image_tag post.image.url(:medium) %>
-      </div>
-    </div>
-  <% end %>
-</div>
+

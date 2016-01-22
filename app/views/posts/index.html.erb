@@ -24,7 +24,7 @@
               </div>
               <%= image_tag post.image.url(:medium) %>
               <div class="likes_count" id="<%= "likes" << post.id.to_s %>"><%= pluralize(post.who_liked.count, "like") %></div>
-              <div id="<%= post.id %>">
+              <div class= "heart-like" id="<%= post.id %>">
                 <%= render 'likes/like_buttom', object: post %></li>
               </div>
               <%= render 'indidual_post', :object => post %>
