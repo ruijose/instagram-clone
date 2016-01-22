@@ -1,38 +1,40 @@
-<h2><center>Sign up</center></h2>
+<body id="registration-page">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 col-md-offset-4">
+        <div id="registration-form">
+          <div id="login-heading">
+            <h2>Sign up</h2>
+          </div>
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+            <%= devise_error_messages! %>
 
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <%= devise_error_messages! %>
+            <div class="field">
+              <%= f.email_field :email, autofocus: true, class: 'form-control', placeholder: "Email" %>
+              <br />
+            </div>
 
-      <div class="field">
-        <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true, class: 'form-control' %>
+            <div class="field">
+              <%= f.password_field :password, autocomplete: "off" , class: 'form-control', placeholder: "Password" %>
+              <br />
+            </div>
+
+            <div class="field">
+              <p><%= f.password_field :password_confirmation, autocomplete: "off" , class: 'form-control', placeholder: "Password confirmation" %></p>
+              <br />
+            </div>
+
+            <div>
+              <p><%= f.file_field :avatar %></p>
+              <br />
+            </div>
+
+            <div class="actions">
+              <%= f.submit "Sign up", class: "btn btn-primary btn-block"  %>
+            </div>
+          <% end %>
+        </div>
       </div>
-
-      <div class="field">
-        <%= f.label :password %>
-        <% if @validatable %>
-          <em>(<%= @minimum_password_length %> characters minimum)</em>
-        <% end %><br />
-        <%= f.password_field :password, autocomplete: "off" , class: 'form-control'%>
-      </div>
-
-      <div class="field">
-        <%= f.label :password_confirmation %><br />
-        <p><%= f.password_field :password_confirmation, autocomplete: "off" , class: 'form-control'%></p>
-      </div>
-
-      <div>
-        <%= f.label :avatar %></br />
-        <p><%= f.file_field :avatar %></p>
-      </div>
-
-      <div class="actions">
-        <%= f.submit "Sign up", class: "btn btn-primary center-block"  %>
-      </div>
-    <% end %>
-
-    <%= render "devise/shared/links" %>
+    </div>
   </div>
-</div>
+</body>

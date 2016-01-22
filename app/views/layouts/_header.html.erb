@@ -1,40 +1,37 @@
 <nav class="navbar navbar-default" id="pnavbar">
-<div class="container-fluid">
-  <div class="navbar-header">
-    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-  </div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
 
-  <div id="body-container">
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li><a <%= link_to "HyperGram", root_path %></a></li>
-        <li><a <%= link_to "new post", new_post_path %></a></li>
-      </ul>
-      <ul class="nav navbar-nav">
-        <%= form_tag(users_path, :method => "get", class: "navbar-form") do %>
-          <div class="form-group">
-            <%= text_field_tag :search, params[:search], placeholder: "search people...", class: "form-control", id: "search-form" %>
-          </div>
-        <% end %> 
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <% if user_signed_in? %>
-          <% if request.original_url.include?("users/#{current_user.id}") %>
-            <li><a <%= link_to "edit", edit_user_registration_path %></a></li>
-            <li><a <%= link_to "logout", destroy_user_session_path, :method => :delete %></a></li>
-          <% else %>
-            <li><a <%= link_to current_user.email.split("@")[0], current_user %></a></li>
-          <% end %>
-        <% else %>
-          <li><a <%= link_to "Login", new_user_session_path %></a></li>
-        <% end %>
-      </ul>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li><a <%= link_to "HyperGram", root_path %></a></li>
+            <li><a <%= link_to "new post", new_post_path %></a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <% if user_signed_in? %>
+              <% if request.original_url.include?("users/#{current_user.id}") %>
+                <li><a <%= link_to "edit", edit_user_registration_path %></a></li>
+                <li><a <%= link_to "logout", destroy_user_session_path, :method => :delete %></a></li>
+              <% else %>
+                <li><a <%= link_to current_user.email.split("@")[0], current_user %></a></li>
+              <% end %>
+            <% else %>
+              <li><a <%= link_to "New account", new_user_registration_path %></a></li>
+            <% end %>
+          </ul>
+      </div>
     </div>
   </div>
+</div>
 </div>
 </nav>
