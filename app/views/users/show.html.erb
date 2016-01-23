@@ -19,6 +19,8 @@
                 <% else %>
                   <%= render 'follow' %>
                 <% end %>
+              <% else %>
+                <%= link_to "Edit profile", edit_user_registration_path, :id => "edit-button", class: "btn btn-success" %>
               <% end %>
             </div>
           </div>

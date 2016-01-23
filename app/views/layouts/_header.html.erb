@@ -13,22 +13,25 @@
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav">
-            <li><a <%= link_to "HyperGram", root_path %></a></li>
-            <li><a <%= link_to "new post", new_post_path %></a></li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <% if user_signed_in? %>
-              <% if request.original_url.include?("users/#{current_user.id}") %>
-                <li><a <%= link_to "edit", edit_user_registration_path %></a></li>
-                <li><a <%= link_to "logout", destroy_user_session_path, :method => :delete %></a></li>
+          <div id="title-page">
+            <ul class="nav navbar-nav">
+              <li><a <%= link_to "HyperGram", root_path %></a></li>
+              <li><a <%= link_to "new post", new_post_path %></a></li>
+            </ul>
+          </div>
+          <div id="username-bar">
+            <ul class="nav navbar-nav navbar-right">
+              <% if user_signed_in? %>
+                <% if request.original_url.include?("users/#{current_user.id}") %>
+                  <li><a <%= link_to "logout", destroy_user_session_path, :method => :delete %></a></li>
+                <% else %>
+                  <li><a <%= link_to current_user.email.split("@")[0], current_user %></a></li>
+                <% end %>
               <% else %>
-                <li><a <%= link_to current_user.email.split("@")[0], current_user %></a></li>
+                <li><a <%= link_to "New account", new_user_registration_path %></a></li>
               <% end %>
-            <% else %>
-              <li><a <%= link_to "New account", new_user_registration_path %></a></li>
-            <% end %>
-          </ul>
+            </ul>
+          </div>
       </div>
     </div>
   </div>
