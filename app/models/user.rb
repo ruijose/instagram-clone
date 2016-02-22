@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
   end
 
   def following?(other_user)
-    self.relationships.find_by_followed_id(other_user.id)
+    self.followed_users.include?(other_user)
   end
 
   def follow!(other_user)
