@@ -10,7 +10,7 @@
         <div id="all-user-info">
           <div class="row">
             <div id="user-name">
-              <%= @user.email.split("@")[0] %>
+              <%= @user.username %>
             </div>
             <div id="follow-form-users">
               <% unless current_user.id == @user.id %>

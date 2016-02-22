@@ -7,4 +7,10 @@ class Post < ActiveRecord::Base
   has_many :likes, :foreign_key => "liked_pics_id"
   has_many :who_liked, :through => :likes
   has_many :comments, :dependent => :destroy
+
+  def self.followed_users_posts(user)
+    self.all.select do |post|
+      user.followed_users.include?(post.user)
+    end
+  end
 end

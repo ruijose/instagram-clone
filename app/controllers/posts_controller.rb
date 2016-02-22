@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @posts = Post.all.order("created_at DESC")
+    @posts = Post.followed_users_posts(current_user) + current_user.posts
   end
 
   def new
@@ -25,7 +25,7 @@ class PostsController < ApplicationController
   end
 
   private
-  def post_params  
+  def post_params
     params.require(:post).permit(:image, :caption)
-  end  
+  end
 end

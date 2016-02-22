@@ -34,4 +34,8 @@ class User < ActiveRecord::Base
   def self.search(query)
     where("email like ?", "%#{query}%") 
   end
+
+  def username
+    self.email.split("@")[0] #change later
+  end
 end
